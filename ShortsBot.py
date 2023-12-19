@@ -1,18 +1,8 @@
 from moviepy.editor import *
-from openai import OpenAI
-import os
 
 
 def convert_script_to_audio(script: str) -> None:
-    client = OpenAI(
-        api_key=os.environ.get("OPENAI_API_KEY")
-    )
-    response = client.audio.speech.create(
-        model="tts-1",
-        voice="Onyx",
-        input=script
-    )
-    response.stream_to_file("test.mp3")
+    
     
 
 
