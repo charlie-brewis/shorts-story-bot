@@ -1,7 +1,7 @@
 from moviepy.editor import *
 
 # access to video
-clip = VideoFileClip("stock-background-videos\test-video.mp4", audio=False)
+clip = VideoFileClip("stock-background-videos/test-video.mp4", audio=False)
 
 # downloads video clip
-# clip.write_videofile("movie.mp4")
+clip.write_videofile("new-test-video")
