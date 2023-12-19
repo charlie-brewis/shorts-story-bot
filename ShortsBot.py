@@ -1,11 +1,18 @@
 from moviepy.editor import *
-import pyttsx3
+from openai import OpenAI
+
 
 def convert_script_to_audio(script: str) -> None:
-    engine = pyttsx3.init()
-    engine.save_to_file(script, "test.mp3")
-    engine.runAndWait()
-    engine.close()
+    client = OpenAI()
+    response = client.audio.speech.create(
+        model="tts-1",
+        voice="Onyx",
+        input=script
+    )
+    response.stream_to_file("test.mp3")
+    
+
+
 
 def generate_background_video() -> None:
     # file location for background video
@@ -25,3 +32,4 @@ def main() -> None:
     convert_script_to_audio(plain_text)
     print("E")
      
+main()
