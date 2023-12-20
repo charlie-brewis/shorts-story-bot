@@ -1,8 +1,12 @@
 from moviepy.editor import *
+import pyttsx3
 
 
 def convert_script_to_audio(script: str) -> None:
-    
+    engine = pyttsx3.init()
+    engine.setProperty('rate', 225)
+    engine.save_to_file(script, "output-video/test.mp3")
+    engine.runAndWait()
     
 
 
@@ -23,6 +27,5 @@ def generate_background_video() -> None:
 def main() -> None:
     plain_text = input("Enter script: ")
     convert_script_to_audio(plain_text)
-    print("E")
      
 main()
