@@ -26,7 +26,7 @@ def split_script_to_screen_lines(script: str, chars_per_line: int) -> list[str]:
         new_num_chars = len(line) + len(word)
         if new_num_chars <= chars_per_line:
             line += ' ' + word
-        # If we get closer to chars_per_line by adding the word to the line anyway, as opposed to not adding the word, add the word
+        # If we get closer to chars_per_line by adding the word to the line anyway (as opposed to not adding the word) add the word
         elif abs(chars_per_line - new_num_chars) < abs(chars_per_line - len(line)):
             line += ' ' + word
         else:
@@ -62,5 +62,14 @@ def main() -> None:
     script_lines = split_script_to_screen_lines(plain_text, 25)
     # for line in script_lines:
     #     print(f"{len(line)}: {line}")
+
+    # Now generate tts of each line individually
+    # Video length is sum of lenths of audio files 
+    # Trim video to correct length
+    # Place audio files in correct order on video
+    # Place lines in correct order on video - keep line for the length of corresponding audio file
+    # ^ Due to each line having roughly the same length we could just keep for the same static value
+    # return final video
+    
      
 main()
